@@ -1,7 +1,7 @@
 # Copyright (C) 2015, Khulnasoft Inc.
 # Khulnasoft repository installation
 class khulnasoft::certificates (
-  $khulnasoft_repository = 'packages.khulnasoft.com',
+  $khulnasoft_repository = 'packages.wazuh.com',
   $khulnasoft_version = '4.8',
 ) {
   file { 'Configure Khulnasoft Certificates config.yml':

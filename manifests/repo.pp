@@ -12,7 +12,7 @@ class khulnasoft::repo (
       # apt-key added by issue #34
       apt::key { 'khulnasoft':
         id     => '0DCFCA5547B19D2A6099506096B3EE5F29111145',
-        source => 'https://packages.khulnasoft.com/key/GPG-KEY-KHULNASOFT',
+        source => 'https://packages.wazuh.com/key/GPG-KEY-KHULNASOFT',
         server => 'pgp.mit.edu'
       }
       case $::lsbdistcodename {
@@ -21,7 +21,7 @@ class khulnasoft::repo (
           apt::source { 'khulnasoft':
             ensure   => present,
             comment  => 'This is the KHULNASOFT Ubuntu repository',
-            location => 'https://packages.khulnasoft.com/4.x/apt',
+            location => 'https://packages.wazuh.com/4.x/apt',
             release  => 'stable',
             repos    => 'main',
             include  => {
@@ -38,11 +38,11 @@ class khulnasoft::repo (
           /^(CentOS|RedHat|OracleLinux|Fedora|Amazon|AlmaLinux|Rocky|SLES)$/: {
 
             if ( $::operatingsystemrelease =~ /^5.*/ ) {
-              $baseurl  = 'https://packages.khulnasoft.com/4.x/yum/5/'
-              $gpgkey   = 'http://packages.khulnasoft.com/key/GPG-KEY-KHULNASOFT'
+              $baseurl  = 'https://packages.wazuh.com/4.x/yum/5/'
+              $gpgkey   = 'http://packages.wazuh.com/key/GPG-KEY-KHULNASOFT'
             } else {
-              $baseurl  = 'https://packages.khulnasoft.com/4.x/yum/'
-              $gpgkey   = 'https://packages.khulnasoft.com/key/GPG-KEY-KHULNASOFT'
+              $baseurl  = 'https://packages.wazuh.com/4.x/yum/'
+              $gpgkey   = 'https://packages.wazuh.com/key/GPG-KEY-KHULNASOFT'
             }
           }
           default: { fail('This ossec module has not been tested on your distribution.') }

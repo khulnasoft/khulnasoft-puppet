@@ -62,7 +62,7 @@ class khulnasoft::filebeat_oss (
 
   archive { "/tmp/${$khulnasoft_filebeat_module}":
     ensure       => present,
-    source       => "https://packages.khulnasoft.com/4.x/filebeat/${$khulnasoft_filebeat_module}",
+    source       => "https://packages.wazuh.com/4.x/filebeat/${$khulnasoft_filebeat_module}",
     extract      => true,
     extract_path => '/usr/share/filebeat/module',
     creates      => '/usr/share/filebeat/module/khulnasoft',
