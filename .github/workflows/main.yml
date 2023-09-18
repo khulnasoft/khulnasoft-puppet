@@ -53,7 +53,7 @@ jobs:
       run: pdk build
 
     - name: Create artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: khulnasoft-module
         path: ./pkg/khulnasoft-khulnasoft-${{ env.VERSION }}.tar.gz
