@@ -1,31 +1,31 @@
-# Copyright (C) 2015, Wazuh Inc.
-# Wazuh repository installation
-class wazuh::certificates (
-  $wazuh_repository = 'packages.wazuh.com',
-  $wazuh_version = '4.8',
+# Copyright (C) 2015, Khulnasoft Inc.
+# Khulnasoft repository installation
+class khulnasoft::certificates (
+  $khulnasoft_repository = 'packages.khulnasoft.com',
+  $khulnasoft_version = '4.8',
 ) {
-  file { 'Configure Wazuh Certificates config.yml':
+  file { 'Configure Khulnasoft Certificates config.yml':
     owner   => 'root',
     path    => '/tmp/config.yml',
     group   => 'root',
     mode    => '0640',
-    content => template('wazuh/wazuh_config_yml.erb'),
+    content => template('khulnasoft/khulnasoft_config_yml.erb'),
   }
 
-  file { '/tmp/wazuh-certs-tool.sh':
+  file { '/tmp/khulnasoft-certs-tool.sh':
     ensure => file,
-    source => "https://${wazuh_repository}/${wazuh_version}/wazuh-certs-tool.sh",
+    source => "https://${khulnasoft_repository}/${khulnasoft_version}/khulnasoft-certs-tool.sh",
     owner  => 'root',
     group  => 'root',
     mode   => '0740',
   }
 
-  exec { 'Create Wazuh Certificates':
+  exec { 'Create Khulnasoft Certificates':
     path    => '/usr/bin:/bin',
-    command => 'bash /tmp/wazuh-certs-tool.sh --all',
-    creates => '/tmp/wazuh-certificates',
+    command => 'bash /tmp/khulnasoft-certs-tool.sh --all',
+    creates => '/tmp/khulnasoft-certificates',
     require => [
-      File['/tmp/wazuh-certs-tool.sh'],
+      File['/tmp/khulnasoft-certs-tool.sh'],
       File['/tmp/config.yml'],
     ],
   }

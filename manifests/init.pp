@@ -1,3 +1,3 @@
-# Copyright (C) 2015, Wazuh Inc.
+# Copyright (C) 2015, Khulnasoft Inc.
 # Blank container class
-class wazuh { }
+class khulnasoft { }

@@ -4,11 +4,11 @@ set -e
 
 
 mkdir kitchen/modules
-mkdir kitchen/modules/wazuh
+mkdir kitchen/modules/khulnasoft
 echo `ls -lah ./`
 echo `ls -lah kitchen/modules`
-cp -r `ls -A | grep -v "kitchen"` kitchen/modules/wazuh/
-echo `ls -lah kitchen/modules/wazuh`
+cp -r `ls -A | grep -v "kitchen"` kitchen/modules/khulnasoft/
+echo `ls -lah kitchen/modules/khulnasoft`
 cd kitchen # Access kitchen folder
 kitchen list
 kitchen destroy
@@ -20,16 +20,16 @@ kitchen converge -l=debug
 #echo "Kitchen is creating the new instances"
 #kitchen create # creating new kitchen instances
 #
-#echo "Getting Wazuh managers IPs to the agents"
+#echo "Getting Khulnasoft managers IPs to the agents"
 #manager_ip="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' `docker ps | awk '{print $NF}' | grep $PLATFORM | grep $RELEASE | grep manager`)"
 #
 #echo "getting a copy of ./manifests/site.pp.template"
 #cp ./manifests/site.pp.template ./manifests/site.pp
 #
-#echo "wazuh-manager IP"
+#echo "khulnasoft-manager IP"
 #echo $manager_ip
 #
-#echo "Assigning Wazuh managers IPs to the corresponding agents."
+#echo "Assigning Khulnasoft managers IPs to the corresponding agents."
 #sed -i 's/manager_ip/'${manager_ip}'/g' ./manifests/site.pp
 #
 #echo "Setting the platform in the components names."

@@ -8,7 +8,7 @@
 ├── hieradata
 ├── kitchen.yml
 ├── manifests
-├── modules `should contain wazuh-puppet module`
+├── modules `should contain khulnasoft-puppet module`
 ├── Puppetfile
 ├── run.sh
 ├── test
@@ -21,7 +21,7 @@ Find more details in the [official documentation](https://kitchen.ci/)
 Kitchen basically works with `Ruby` gems and so, all required packages are available as gems. In our case, we would need the following gems to be installed. Found in the file `Gemfile` :
 
 ```
-vagrant@master:~/wazuh-puppet/kitchen$ cat Gemfile
+vagrant@master:~/khulnasoft-puppet/kitchen$ cat Gemfile
 # frozen_string_literal: true
 source "https://rubygems.org"
 
@@ -62,7 +62,7 @@ forge "https://forgeapi.puppetlabs.com"
 # use dependencies defined in metadata.json
 #metadata
 
-mod "wazuh/wazuh"
+mod "khulnasoft/khulnasoft"
 # use dependencies defined in Modulefile
 # modulefile
 
@@ -99,7 +99,7 @@ In the file `kitchen.yml` we have to configure the machines were our tests will 
 - An initial example of `kitchen.yml` would be:
 
 ```
-vagrant@master:~/wazuh-puppet/kitchen$ cat kitchen.yml
+vagrant@master:~/khulnasoft-puppet/kitchen$ cat kitchen.yml
 ---
 driver:
   name: docker
@@ -140,7 +140,7 @@ Once we have `kitchen.yml` prepared, then we can create the environment by runni
 kitchen create
 ```
 
-This way we will only have our machines created without installing the desired components to be tested. These components are represented by Wazuh stack components such as `wazuh-manager`, `wazuh-agent`, etc ...
+This way we will only have our machines created without installing the desired components to be tested. These components are represented by Khulnasoft stack components such as `khulnasoft-manager`, `khulnasoft-agent`, etc ...
 
 **5. Install the required components to be tested then**
 
@@ -148,19 +148,19 @@ In `Puppet` case, to specify the `manifests` to be installed, we should configur
 
 ```
 node 'manager00_ubuntu' {
-  class { "wazuh::manager":
+  class { "khulnasoft::manager":
         configure_wodle_openscap => false
   }
 }
 node 'agent00_ubuntu' {
-  class { "wazuh::agent":
+  class { "khulnasoft::agent":
         ossec_ip => "manager_ip",
         configure_wodle_openscap => false
   }
 }
 ```
 
-As you can see, we only want to install `wazuh-manager` and `wazuh-agent`.
+As you can see, we only want to install `khulnasoft-manager` and `khulnasoft-agent`.
 
 
 **6. Kitchen Converging: Installing the packages to be tested**
@@ -188,9 +188,9 @@ suites:
       command: py.test -v test/base
 ```
 
-In the folder test/base, we put our tests. By now we implemented 2 tests, one for `wazuh-manager` and another one for `wazuh-agent`. Please check both here: 
-* [manager](https://github.com/wazuh/wazuh-puppet/blob/v3.9.5_7.2.1/kitchen/test/base/test_wazuh_manager.py)
-* [agent](https://github.com/wazuh/wazuh-puppet/blob/v3.9.5_7.2.1/kitchen/test/base/test_wazuh_agent.py)
+In the folder test/base, we put our tests. By now we implemented 2 tests, one for `khulnasoft-manager` and another one for `khulnasoft-agent`. Please check both here: 
+* [manager](https://github.com/khulnasoft/khulnasoft-puppet/blob/v3.9.5_7.2.1/kitchen/test/base/test_khulnasoft_manager.py)
+* [agent](https://github.com/khulnasoft/khulnasoft-puppet/blob/v3.9.5_7.2.1/kitchen/test/base/test_khulnasoft_agent.py)
 
 Once we have our suite prepared, then we run:
 
@@ -208,18 +208,18 @@ And in a successful testing attempt we can get something like:
 ============================= test session starts ==============================
 platform linux -- Python 3.4.3, pytest-4.6.4, py-1.8.0, pluggy-0.12.0 -- /usr/bin/python3.4
 cachedir: .pytest_cache
-rootdir: /home/vagrant/wazuh-puppet/kitchen
+rootdir: /home/vagrant/khulnasoft-puppet/kitchen
 plugins: testinfra-3.0.5
 collecting ... collected 8 items
 
-test/base/test_wazuh_agent.py::test_wazuh_agent_package SKIPPED          [ 12%]
-test/base/test_wazuh_agent.py::test_wazuh_processes_running[ossec-agentd-ossec] SKIPPED [ 25%]
-test/base/test_wazuh_agent.py::test_wazuh_processes_running[ossec-execd-root] SKIPPED [ 37%]
-test/base/test_wazuh_agent.py::test_wazuh_processes_running[ossec-syscheckd-root] SKIPPED [ 50%]
-test/base/test_wazuh_agent.py::test_wazuh_processes_running[wazuh-modulesd-root] SKIPPED [ 62%]
-test/base/test_wazuh_manager.py::test_wazuh_agent_package PASSED         [ 75%]
-test/base/test_wazuh_manager.py::test_wazuh_packages_are_installed PASSED [ 87%]
-test/base/test_wazuh_manager.py::test_wazuh_services_are_running PASSED  [100%]
+test/base/test_khulnasoft_agent.py::test_khulnasoft_agent_package SKIPPED          [ 12%]
+test/base/test_khulnasoft_agent.py::test_khulnasoft_processes_running[ossec-agentd-ossec] SKIPPED [ 25%]
+test/base/test_khulnasoft_agent.py::test_khulnasoft_processes_running[ossec-execd-root] SKIPPED [ 37%]
+test/base/test_khulnasoft_agent.py::test_khulnasoft_processes_running[ossec-syscheckd-root] SKIPPED [ 50%]
+test/base/test_khulnasoft_agent.py::test_khulnasoft_processes_running[khulnasoft-modulesd-root] SKIPPED [ 62%]
+test/base/test_khulnasoft_manager.py::test_khulnasoft_agent_package PASSED         [ 75%]
+test/base/test_khulnasoft_manager.py::test_khulnasoft_packages_are_installed PASSED [ 87%]
+test/base/test_khulnasoft_manager.py::test_khulnasoft_services_are_running PASSED  [100%]
 
 ===================== 3 passed, 5 skipped in 1.18 seconds ======================
        Finished verifying <default-ubuntu-manager-00> (0m2.16s).

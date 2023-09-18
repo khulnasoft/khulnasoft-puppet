@@ -1,22 +1,22 @@
-# Wazuh Puppet module
+# Khulnasoft Puppet module
 
-[![Slack](https://img.shields.io/badge/slack-join-blue.svg)](https://wazuh.com/community/join-us-on-slack/)
-[![Email](https://img.shields.io/badge/email-join-blue.svg)](https://groups.google.com/forum/#!forum/wazuh)
-[![Documentation](https://img.shields.io/badge/docs-view-green.svg)](https://documentation.wazuh.com)
-[![Web](https://img.shields.io/badge/web-view-green.svg)](https://wazuh.com)
-![Kitchen tests for Wazuh Puppet](https://github.com/wazuh/wazuh-puppet/workflows/Kitchen%20tests%20for%20Wazuh%20Puppet/badge.svg)
+[![Slack](https://img.shields.io/badge/slack-join-blue.svg)](https://khulnasoft.com/community/join-us-on-slack/)
+[![Email](https://img.shields.io/badge/email-join-blue.svg)](https://groups.google.com/forum/#!forum/khulnasoft)
+[![Documentation](https://img.shields.io/badge/docs-view-green.svg)](https://documentation.khulnasoft.com)
+[![Web](https://img.shields.io/badge/web-view-green.svg)](https://khulnasoft.com)
+![Kitchen tests for Khulnasoft Puppet](https://github.com/khulnasoft/khulnasoft-puppet/workflows/Kitchen%20tests%20for%20Khulnasoft%20Puppet/badge.svg)
 
-This module installs and configure Wazuh agent and manager.
+This module installs and configure Khulnasoft agent and manager.
 
 ## Documentation
 
-* [Full documentation](http://documentation.wazuh.com)
-* [Wazuh Puppet module documentation](https://documentation.wazuh.com/current/deploying-with-puppet/index.html)
-* [Puppet Forge](https://forge.puppetlabs.com/wazuh/wazuh)
+* [Full documentation](http://documentation.khulnasoft.com)
+* [Khulnasoft Puppet module documentation](https://documentation.khulnasoft.com/current/deploying-with-puppet/index.html)
+* [Puppet Forge](https://forge.puppetlabs.com/khulnasoft/khulnasoft)
 
 ## Directory structure
 
-    wazuh-puppet/
+    khulnasoft-puppet/
     ├── CHANGELOG.md
     ├── checksums.json
     ├── data
@@ -104,31 +104,31 @@ This module installs and configure Wazuh agent and manager.
     │   ├── local_rules.xml.erb
     │   ├── ossec_shared_agent.conf.erb
     │   ├── process_list.erb
-    │   ├── wazuh_agent.conf.erb
-    │   ├── wazuh_api_yml.erb
-    │   ├── wazuh_config_yml.erb
-    │   ├── wazuh_manager.conf.erb
-    │   └── wazuh_yml.erb
+    │   ├── khulnasoft_agent.conf.erb
+    │   ├── khulnasoft_api_yml.erb
+    │   ├── khulnasoft_config_yml.erb
+    │   ├── khulnasoft_manager.conf.erb
+    │   └── khulnasoft_yml.erb
     └── VERSION
 
 ## Branches
 
 * `master` branch contains the latest code, be aware of possible bugs on this branch.
-* `stable` branch on correspond to the last Wazuh-Puppet stable version.
+* `stable` branch on correspond to the last Khulnasoft-Puppet stable version.
 
 ## Contribute
 
-If you want to contribute to our project please don't hesitate to send a pull request. You can also join our users [mailing list](https://groups.google.com/d/forum/wazuh) or the [Wazuh Slack community channel](https://wazuh.com/community/join-us-on-slack/) to ask questions and participate in discussions.
+If you want to contribute to our project please don't hesitate to send a pull request. You can also join our users [mailing list](https://groups.google.com/d/forum/khulnasoft) or the [Khulnasoft Slack community channel](https://khulnasoft.com/community/join-us-on-slack/) to ask questions and participate in discussions.
 
 ## Credits and thank you
 
-This Puppet module has been authored by Nicolas Zin, and updated by Jonathan Gazeley and Michael Porter. Wazuh has forked it with the purpose of maintaining it. Thank you to the authors for the contribution.
+This Puppet module has been authored by Nicolas Zin, and updated by Jonathan Gazeley and Michael Porter. Khulnasoft has forked it with the purpose of maintaining it. Thank you to the authors for the contribution.
 
 ## License and copyright
 
-WAZUH
-Copyright (C) 2015, Wazuh Inc.  (License GPLv2)
+KHULNASOFT
+Copyright (C) 2015, Khulnasoft Inc.  (License GPLv2)
 
 ## Web References
 
-* [Wazuh website](http://wazuh.com)
+* [Khulnasoft website](http://khulnasoft.com)

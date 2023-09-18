@@ -1,6 +1,6 @@
 ---
-# Wazuh app - App configuration file
-# Copyright (C) 2015, Wazuh Inc.
+# Khulnasoft app - App configuration file
+# Copyright (C) 2015, Khulnasoft Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -9,25 +9,25 @@
 #
 # Find more information about this on the LICENSE file.
 #
-# ======================== Wazuh dashboard configuration file ========================
+# ======================== Khulnasoft dashboard configuration file ========================
 #
 # Please check the documentation for more information about configuration options:
-# https://documentation.wazuh.com/4.8/user-manual/wazuh-dashboard/config-file.html
+# https://documentation.khulnasoft.com/4.8/user-manual/khulnasoft-dashboard/config-file.html
 #
 # Also, you can check our repository:
-# https://github.com/wazuh/wazuh-kibana-app
+# https://github.com/khulnasoft/khulnasoft-kibana-app
 #
 # ---------------------------- Unauthorized roles ------------------------------
 #
-# Disable Wazuh for the Elasticsearch / OpenSearch roles defined here.
+# Disable Khulnasoft for the Elasticsearch / OpenSearch roles defined here.
 # disabled_roles:
-#   - wazuh_disabled
+#   - khulnasoft_disabled
 #
 # ------------------------------- Index patterns -------------------------------
 #
 # Default index pattern to use on the app. If there's no valid index pattern, the
 # app will automatically create one with the name indicated in this option.
-# pattern: wazuh-alerts-*
+# pattern: khulnasoft-alerts-*
 #
 # ----------------------------------- Checks -----------------------------------
 #
@@ -49,13 +49,13 @@
 # Enable or disable the known fields health check when opening the app.
 # checks.fields: true
 #
-# Change the default value of the Wazuh dashboard metaField configuration
+# Change the default value of the Khulnasoft dashboard metaField configuration
 # checks.metaFields: true
 #
-# Change the default value of the Wazuh dashboard timeFilter configuration
+# Change the default value of the Khulnasoft dashboard timeFilter configuration
 # checks.timeFilter: true
 #
-# Change the default value of the Wazuh dashboard max buckets configuration
+# Change the default value of the Khulnasoft dashboard max buckets configuration
 # checks.maxBuckets: true
 #
 # --------------------------------- Extensions ---------------------------------
@@ -116,43 +116,43 @@
 # ip.selector: true
 #
 # Disable certain index pattern names from being available in index pattern
-# selector from the Wazuh app.
+# selector from the Khulnasoft app.
 # ip.ignore:
 #
 # ------------------------------ Monitoring ------------------------------------
 #
-# Enable or disable the wazuh-monitoring index creation and/or visualization.
-# wazuh.monitoring.enabled: true
+# Enable or disable the khulnasoft-monitoring index creation and/or visualization.
+# khulnasoft.monitoring.enabled: true
 #
 # Frequency, in seconds, of API requests to get the state of the agents and create
-# a new document in the wazuh-monitoring index with this data.
-# wazuh.monitoring.frequency: 900
+# a new document in the khulnasoft-monitoring index with this data.
+# khulnasoft.monitoring.frequency: 900
 #
-# Define the number of shards to use for the wazuh-monitoring-* indices.
-# wazuh.monitoring.shards: 1
+# Define the number of shards to use for the khulnasoft-monitoring-* indices.
+# khulnasoft.monitoring.shards: 1
 #
-# Define the number of replicas to use for the wazuh-monitoring-* indices.
-# wazuh.monitoring.replicas: 0
+# Define the number of replicas to use for the khulnasoft-monitoring-* indices.
+# khulnasoft.monitoring.replicas: 0
 #
-# Define the interval in which a new wazuh-monitoring index will be created.
+# Define the interval in which a new khulnasoft-monitoring index will be created.
 # Allowed values are: h (hourly), d (daily), w (weekly), m (monthly)
-# wazuh.monitoring.creation: w
+# khulnasoft.monitoring.creation: w
 #
-# Default index pattern to use for Wazuh monitoring.
-# wazuh.monitoring.pattern: wazuh-monitoring-*
+# Default index pattern to use for Khulnasoft monitoring.
+# khulnasoft.monitoring.pattern: khulnasoft-monitoring-*
 #
 # --------------------------------- Sample data --------------------------------
 #
 # Define the index name prefix of sample alerts. It must match the template used
 # by the index pattern to avoid unknown fields in dashboards.
-# alerts.sample.prefix: wazuh-alerts-4.x-
+# alerts.sample.prefix: khulnasoft-alerts-4.x-
 #
 # ------------------------------ Background tasks ------------------------------
 #
 # Define the index prefix of predefined jobs.
-# cron.prefix: wazuh
+# cron.prefix: khulnasoft
 #
-# ------------------------------ Wazuh Statistics ------------------------------
+# ------------------------------ Khulnasoft Statistics ------------------------------
 #
 # Enable or disable the statistics tasks.
 # cron.statistics.status: true
@@ -178,16 +178,16 @@
 #
 # ------------------------------ Logo customization ----------------------------
 #
-# Set the name of the app logo stored at /plugins/wazuh/public/assets/
+# Set the name of the app logo stored at /plugins/khulnasoft/public/assets/
 # customization.logo.app:
 #
-# Set the name of the sidebar logo stored at /plugins/wazuh/public/assets/
+# Set the name of the sidebar logo stored at /plugins/khulnasoft/public/assets/
 # customization.logo.sidebar:
 #
-# Set the name of the health-check logo stored at /plugins/wazuh/public/assets/
+# Set the name of the health-check logo stored at /plugins/khulnasoft/public/assets/
 # customization.logo.healthcheck:
 #
-# Set the name of the reports logo (.png) stored at /plugins/wazuh/public/assets/
+# Set the name of the reports logo (.png) stored at /plugins/khulnasoft/public/assets/
 # customization.logo.reports:
 #
 # ---------------------------- Hide manager alerts -----------------------------
@@ -203,13 +203,13 @@
 #
 # ------------------------------- Agent enrollment -----------------------------
 #
-# Specifies the Wazuh registration server, used for the agent enrollment.
+# Specifies the Khulnasoft registration server, used for the agent enrollment.
 # enrollment.dns:
 #
 # Specifies the password used to authenticate during the agent enrollment.
 # enrollment.password:
 #
-#-------------------------------- Wazuh hosts ----------------------------------
+#-------------------------------- Khulnasoft hosts ----------------------------------
 #
 # The following configuration is the default structure to define a host.
 #
@@ -221,20 +221,20 @@
 #       # Host / API port
 #       port: 55000
 #       # Host / API username
-#       username: wazuh-wui
+#       username: khulnasoft-wui
 #       # Host / API password
-#       password: wazuh-wui
-#       # Use RBAC or not. If set to true, the username must be "wazuh-wui".
+#       password: khulnasoft-wui
+#       # Use RBAC or not. If set to true, the username must be "khulnasoft-wui".
 #       run_as: true
 #   - env-2:
 #       url: https://env-2.example
 #       port: 55000
-#       username: wazuh-wui
-#       password: wazuh-wui
+#       username: khulnasoft-wui
+#       password: khulnasoft-wui
 #       run_as: true
 
 hosts:
-<% @dashboard_wazuh_api_credentials.each do |api_profile| -%>
+<% @dashboard_khulnasoft_api_credentials.each do |api_profile| -%>
   - <%= api_profile['id'] %>:
       url: <%= api_profile['url'] %>
       port: <%= api_profile['port'] %>

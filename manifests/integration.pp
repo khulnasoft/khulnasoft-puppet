@@ -1,6 +1,6 @@
-# Copyright (C) 2015, Wazuh Inc.
+# Copyright (C) 2015, Khulnasoft Inc.
 #Define for a specific ossec integration
-define wazuh::integration(
+define khulnasoft::integration(
   $hook_url = '',
   $api_key = '',
   $in_rule_id = '',
@@ -11,11 +11,11 @@ define wazuh::integration(
   $in_max_log = '',
 ) {
 
-  require wazuh::params_manager
+  require khulnasoft::params_manager
 
   concat::fragment { $name:
     target  => 'manager_ossec.conf',
     order   => 60,
-    content => template('wazuh/fragments/_integration.erb')
+    content => template('khulnasoft/fragments/_integration.erb')
   }
 }

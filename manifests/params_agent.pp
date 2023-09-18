@@ -1,10 +1,10 @@
-# Copyright (C) 2015, Wazuh Inc.
-# Wazuh-Agent configuration parameters
-class wazuh::params_agent {
+# Copyright (C) 2015, Khulnasoft Inc.
+# Khulnasoft-Agent configuration parameters
+class khulnasoft::params_agent {
   $agent_package_version = '4.8.0'
   $agent_package_revision = '1'
   $agent_service_ensure = 'running'
-  $agent_msi_download_location = 'https://packages.wazuh.com/4.x/windows'
+  $agent_msi_download_location = 'https://packages.khulnasoft.com/4.x/windows'
 
   $agent_name = undef
   $agent_group = undef
@@ -17,13 +17,13 @@ class wazuh::params_agent {
   $logging_log_format = 'plain'
 
   # Agents registration parameters
-  $wazuh_agent_cert = undef
-  $wazuh_agent_key = undef
-  $wazuh_agent_cert_path = undef
-  $wazuh_agent_key_path = undef
+  $khulnasoft_agent_cert = undef
+  $khulnasoft_agent_key = undef
+  $khulnasoft_agent_cert_path = undef
+  $khulnasoft_agent_key_path = undef
   $agent_auth_password = undef
-  $wazuh_manager_root_ca_pem = undef
-  $wazuh_manager_root_ca_pem_path = undef
+  $khulnasoft_manager_root_ca_pem = undef
+  $khulnasoft_manager_root_ca_pem_path = undef
   $authd_pass_file = '/var/ossec/etc/authd.pass'
 
   # ossec.conf generation variables
@@ -39,29 +39,29 @@ class wazuh::params_agent {
   $configure_active_response = true
 
   # ossec.conf templates paths
-  $ossec_conf_template = 'wazuh/wazuh_agent.conf.erb'
-  $ossec_rootcheck_template = 'wazuh/fragments/_rootcheck.erb'
-  $ossec_wodle_openscap_template = 'wazuh/fragments/_wodle_openscap.erb'
-  $ossec_wodle_cis_cat_template = 'wazuh/fragments/_wodle_cis_cat.erb'
-  $ossec_wodle_osquery_template = 'wazuh/fragments/_wodle_osquery.erb'
-  $ossec_wodle_syscollector_template = 'wazuh/fragments/_wodle_syscollector.erb'
-  $ossec_wodle_docker_listener_template = 'wazuh/fragments/_wodle_docker_listener.erb'
-  $ossec_sca_template = 'wazuh/fragments/_sca.erb'
-  $ossec_syscheck_template = 'wazuh/fragments/_syscheck.erb'
-  $ossec_localfile_template = 'wazuh/fragments/_localfile.erb'
-  $ossec_auth = 'wazuh/fragments/_auth.erb'
-  $ossec_cluster = 'wazuh/fragments/_cluster.erb'
-  $ossec_active_response_template = 'wazuh/fragments/_activeresponse.erb'
+  $ossec_conf_template = 'khulnasoft/khulnasoft_agent.conf.erb'
+  $ossec_rootcheck_template = 'khulnasoft/fragments/_rootcheck.erb'
+  $ossec_wodle_openscap_template = 'khulnasoft/fragments/_wodle_openscap.erb'
+  $ossec_wodle_cis_cat_template = 'khulnasoft/fragments/_wodle_cis_cat.erb'
+  $ossec_wodle_osquery_template = 'khulnasoft/fragments/_wodle_osquery.erb'
+  $ossec_wodle_syscollector_template = 'khulnasoft/fragments/_wodle_syscollector.erb'
+  $ossec_wodle_docker_listener_template = 'khulnasoft/fragments/_wodle_docker_listener.erb'
+  $ossec_sca_template = 'khulnasoft/fragments/_sca.erb'
+  $ossec_syscheck_template = 'khulnasoft/fragments/_syscheck.erb'
+  $ossec_localfile_template = 'khulnasoft/fragments/_localfile.erb'
+  $ossec_auth = 'khulnasoft/fragments/_auth.erb'
+  $ossec_cluster = 'khulnasoft/fragments/_cluster.erb'
+  $ossec_active_response_template = 'khulnasoft/fragments/_activeresponse.erb'
 
   # ossec.conf blocks
 
   ## Server block configuration
-  $wazuh_register_endpoint = undef
-  $wazuh_reporting_endpoint = undef
+  $khulnasoft_register_endpoint = undef
+  $khulnasoft_reporting_endpoint = undef
   $ossec_port = '1514'
   $ossec_protocol = 'tcp'
-  $wazuh_max_retries = '5'
-  $wazuh_retry_interval = '5'
+  $khulnasoft_max_retries = '5'
+  $khulnasoft_retry_interval = '5'
   $ossec_config_ubuntu_profiles = 'ubuntu, ubuntu18, ubuntu18.04'
   $ossec_config_centos_profiles = 'centos, centos7, centos7.6'
   $ossec_notify_time = 10
@@ -80,28 +80,28 @@ class wazuh::params_agent {
   $active_response_repeated_offenders              = []
 
   # agent autoenrollment
-  $wazuh_enrollment_enabled                        = undef
-  $wazuh_enrollment_manager_address                = undef
-  $wazuh_enrollment_port                           = undef
-  $wazuh_enrollment_agent_name                     = undef
-  $wazuh_enrollment_groups                         = undef
-  $wazuh_enrollment_agent_address                  = undef
-  $wazuh_enrollment_ssl_cipher                     = undef
-  $wazuh_enrollment_server_ca_path                 = undef
-  $wazuh_enrollment_agent_cert_path                = undef
-  $wazuh_enrollment_agent_key_path                 = undef
-  $wazuh_enrollment_auth_pass                      = undef
-  $wazuh_enrollment_auth_pass_path                 = $authd_pass_file
-  $wazuh_enrollment_auto_method                    = undef
-  $wazuh_delay_after_enrollment                    = undef
-  $wazuh_enrollment_use_source_ip                  = undef
+  $khulnasoft_enrollment_enabled                        = undef
+  $khulnasoft_enrollment_manager_address                = undef
+  $khulnasoft_enrollment_port                           = undef
+  $khulnasoft_enrollment_agent_name                     = undef
+  $khulnasoft_enrollment_groups                         = undef
+  $khulnasoft_enrollment_agent_address                  = undef
+  $khulnasoft_enrollment_ssl_cipher                     = undef
+  $khulnasoft_enrollment_server_ca_path                 = undef
+  $khulnasoft_enrollment_agent_cert_path                = undef
+  $khulnasoft_enrollment_agent_key_path                 = undef
+  $khulnasoft_enrollment_auth_pass                      = undef
+  $khulnasoft_enrollment_auth_pass_path                 = $authd_pass_file
+  $khulnasoft_enrollment_auto_method                    = undef
+  $khulnasoft_delay_after_enrollment                    = undef
+  $khulnasoft_enrollment_use_source_ip                  = undef
 
   # Other required to define variables
   $manage_repo = true
   $manage_firewall = false
   $selinux = false
   $configure_labels = false
-  $ossec_labels_template = 'wazuh/fragments/_labels.erb'
+  $ossec_labels_template = 'khulnasoft/fragments/_labels.erb'
   $ossec_labels = []
 
 
@@ -230,30 +230,30 @@ class wazuh::params_agent {
   # OS specific configurations
   case $::kernel {
     'Linux': {
-      $agent_package_name = 'wazuh-agent'
-      $agent_service_name = 'wazuh-agent'
+      $agent_package_name = 'khulnasoft-agent'
+      $agent_service_name = 'khulnasoft-agent'
 
       $download_path = '/tmp'
 
-      # Wazuh config folders and modes
+      # Khulnasoft config folders and modes
       $config_file = '/var/ossec/etc/ossec.conf'
       $shared_agent_config_file = '/var/ossec/etc/shared/agent.conf'
 
       $config_mode = '0640'
       $config_owner = 'root'
-      $config_group = 'wazuh'
+      $config_group = 'khulnasoft'
 
       $keys_file = '/var/ossec/etc/client.keys'
       $keys_mode = '0640'
       $keys_owner = 'root'
-      $keys_group = 'wazuh'
+      $keys_group = 'khulnasoft'
 
       $validate_cmd_conf = '/var/ossec/bin/verify-agent-conf -f %'
 
       $processlist_file = '/var/ossec/bin/.process_list'
       $processlist_mode = '0640'
       $processlist_owner = 'root'
-      $processlist_group = 'wazuh'
+      $processlist_group = 'khulnasoft'
 
       # ossec.conf blocks
 
@@ -336,8 +336,8 @@ class wazuh::params_agent {
               }
             }
             /^(wheezy|stretch|buster|bullseye|bookworm|sid|precise|trusty|vivid|wily|xenial|bionic|focal|groovy|jammy)$/: {
-              $server_service = 'wazuh-manager'
-              $server_package = 'wazuh-manager'
+              $server_service = 'khulnasoft-manager'
+              $server_package = 'khulnasoft-manager'
               $wodle_openscap_content = undef
             }
             default: {
@@ -502,8 +502,8 @@ class wazuh::params_agent {
 
       $keys_file = 'C:\\Program Files (x86)\\ossec-agent\\client.keys'
 
-      $agent_package_name = 'Wazuh Agent'
-      $agent_service_name = 'WazuhSvc'
+      $agent_package_name = 'Khulnasoft Agent'
+      $agent_service_name = 'KhulnasoftSvc'
       $service_has_status = true
       $ossec_service_provider = undef
 

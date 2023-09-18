@@ -1,14 +1,14 @@
-# Copyright (C) 2015, Wazuh Inc.
-# Setup for Wazuh Dashboard
-class wazuh::dashboard (
-  $dashboard_package = 'wazuh-dashboard',
-  $dashboard_service = 'wazuh-dashboard',
+# Copyright (C) 2015, Khulnasoft Inc.
+# Setup for Khulnasoft Dashboard
+class khulnasoft::dashboard (
+  $dashboard_package = 'khulnasoft-dashboard',
+  $dashboard_service = 'khulnasoft-dashboard',
   $dashboard_version = '4.8.0',
   $indexer_server_ip = 'localhost',
   $indexer_server_port = '9200',
-  $dashboard_path_certs = '/etc/wazuh-dashboard/certs',
-  $dashboard_fileuser = 'wazuh-dashboard',
-  $dashboard_filegroup = 'wazuh-dashboard',
+  $dashboard_path_certs = '/etc/khulnasoft-dashboard/certs',
+  $dashboard_fileuser = 'khulnasoft-dashboard',
+  $dashboard_filegroup = 'khulnasoft-dashboard',
 
   $dashboard_server_port = '443',
   $dashboard_server_host = '0.0.0.0',
@@ -20,25 +20,25 @@ class wazuh::dashboard (
   $dashboard_user = 'kibanaserver',
   $dashboard_password = 'kibanaserver',
 
-  $dashboard_wazuh_api_credentials = [
+  $dashboard_khulnasoft_api_credentials = [
     {
       'id'       => 'default',
       'url'      => 'https://localhost',
       'port'     => '55000',
-      'user'     => 'wazuh-wui',
-      'password' => 'wazuh-wui',
+      'user'     => 'khulnasoft-wui',
+      'password' => 'khulnasoft-wui',
     },
   ],
 
   $manage_repos = false, # Change to true when manager is not present.
 ) {
   if $manage_repos {
-    include wazuh::repo
+    include khulnasoft::repo
 
     if $::osfamily == 'Debian' {
-      Class['wazuh::repo'] -> Class['apt::update'] -> Package['wazuh-dashboard']
+      Class['khulnasoft::repo'] -> Class['apt::update'] -> Package['khulnasoft-dashboard']
     } else {
-      Class['wazuh::repo'] -> Package['wazuh-dashboard']
+      Class['khulnasoft::repo'] -> Package['khulnasoft-dashboard']
     }
   }
 
@@ -53,18 +53,18 @@ class wazuh::dashboard (
   }
 
   # install package
-  package { 'wazuh-dashboard':
+  package { 'khulnasoft-dashboard':
     ensure => $dashboard_version_install,
     name   => $dashboard_package,
   }
 
-  require wazuh::certificates
+  require khulnasoft::certificates
 
   exec { "ensure full path of ${dashboard_path_certs}":
     path    => '/usr/bin:/bin',
     command => "mkdir -p ${dashboard_path_certs}",
     creates => $dashboard_path_certs,
-    require => Package['wazuh-dashboard'],
+    require => Package['khulnasoft-dashboard'],
   }
   -> file { $dashboard_path_certs:
     ensure => directory,
@@ -84,43 +84,43 @@ class wazuh::dashboard (
       group   => $dashboard_filegroup,
       mode    => '0400',
       replace => false,  # only copy content when file not exist
-      source  => "/tmp/wazuh-certificates/${certfile}",
+      source  => "/tmp/khulnasoft-certificates/${certfile}",
     }
   }
 
-  file { '/etc/wazuh-dashboard/opensearch_dashboards.yml':
-    content => template('wazuh/wazuh_dashboard_yml.erb'),
+  file { '/etc/khulnasoft-dashboard/opensearch_dashboards.yml':
+    content => template('khulnasoft/khulnasoft_dashboard_yml.erb'),
     group   => $dashboard_filegroup,
     mode    => '0640',
     owner   => $dashboard_fileuser,
-    require => Package['wazuh-dashboard'],
-    notify  => Service['wazuh-dashboard'],
+    require => Package['khulnasoft-dashboard'],
+    notify  => Service['khulnasoft-dashboard'],
   }
 
-  file { [ '/usr/share/wazuh-dashboard/data/wazuh/', '/usr/share/wazuh-dashboard/data/wazuh/config' ]:
+  file { [ '/usr/share/khulnasoft-dashboard/data/khulnasoft/', '/usr/share/khulnasoft-dashboard/data/khulnasoft/config' ]:
     ensure  => 'directory',
     group   => $dashboard_filegroup,
     mode    => '0755',
     owner   => $dashboard_fileuser,
-    require => Package['wazuh-dashboard'],
+    require => Package['khulnasoft-dashboard'],
   }
-  -> file { '/usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml':
-    content => template('wazuh/wazuh_yml.erb'),
+  -> file { '/usr/share/khulnasoft-dashboard/data/khulnasoft/config/khulnasoft.yml':
+    content => template('khulnasoft/khulnasoft_yml.erb'),
     group   => $dashboard_filegroup,
     mode    => '0600',
     owner   => $dashboard_fileuser,
-    notify  => Service['wazuh-dashboard'],
+    notify  => Service['khulnasoft-dashboard'],
   }
 
   unless $use_keystore {
-    file { '/etc/wazuh-dashboard/opensearch_dashboards.keystore':
+    file { '/etc/khulnasoft-dashboard/opensearch_dashboards.keystore':
       ensure  => absent,
-      require => Package['wazuh-dashboard'],
-      before  => Service['wazuh-dashboard'],
+      require => Package['khulnasoft-dashboard'],
+      before  => Service['khulnasoft-dashboard'],
     }
   }
 
-  service { 'wazuh-dashboard':
+  service { 'khulnasoft-dashboard':
     ensure     => running,
     enable     => true,
     hasrestart => true,

@@ -1,12 +1,12 @@
 {
-  "name": "wazuh-wazuh",
+  "name": "khulnasoft-khulnasoft",
   "version": "4.8.0",
-  "author": "WAZUH",
-  "summary": "Install and configure Wazuh-HIDS client and server",
+  "author": "KHULNASOFT",
+  "summary": "Install and configure Khulnasoft-HIDS client and server",
   "license": "Apache-2.0",
-  "source": "https://github.com/wazuh/wazuh-puppet",
-  "project_page": "https://github.com/wazuh/wazuh-puppet",
-  "issues_url": "https://github.com/wazuh/wazuh-puppet/issues",
+  "source": "https://github.com/khulnasoft/khulnasoft-puppet",
+  "project_page": "https://github.com/khulnasoft/khulnasoft-puppet",
+  "issues_url": "https://github.com/khulnasoft/khulnasoft-puppet/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
@@ -116,7 +116,7 @@
     "ossec",
     "hids",
     "4.8",
-    "wazuh"
+    "khulnasoft"
   ],
   "pdk-version": "1.14.1",
   "template-url": "pdk-default#1.10.0",

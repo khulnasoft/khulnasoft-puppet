@@ -1,10 +1,10 @@
 node /^manager/ {
-  class { 'wazuh::manager':}
+  class { 'khulnasoft::manager':}
 }
 node /^agent/ {
-  class { 'wazuh::agent':
-        wazuh_register_endpoint => 'manager_ip',
-        wazuh_reporting_endpoint => 'manager_ip',
+  class { 'khulnasoft::agent':
+        khulnasoft_register_endpoint => 'manager_ip',
+        khulnasoft_reporting_endpoint => 'manager_ip',
   }
 }
 

@@ -1,6 +1,6 @@
-# Copyright (C) 2015, Wazuh Inc.
+# Copyright (C) 2015, Khulnasoft Inc.
 # Paramas file
-class wazuh::params_manager {
+class khulnasoft::params_manager {
   case $::kernel {
     'Linux': {
 
@@ -16,9 +16,9 @@ class wazuh::params_manager {
       $ossec_logall                                    = 'no'
       $ossec_logall_json                               = 'no'
       $ossec_emailnotification                         = false
-      $ossec_emailto                                   = ['recipient@example.wazuh.com']
-      $ossec_smtp_server                               = 'smtp.example.wazuh.com'
-      $ossec_emailfrom                                 = 'ossecm@example.wazuh.com'
+      $ossec_emailto                                   = ['recipient@example.khulnasoft.com']
+      $ossec_smtp_server                               = 'smtp.example.khulnasoft.com'
+      $ossec_emailfrom                                 = 'ossecm@example.khulnasoft.com'
       $ossec_email_maxperhour                          = 12
       $ossec_email_idsname                             = undef
       $ossec_email_log_source                          = 'alerts.log'
@@ -52,23 +52,23 @@ class wazuh::params_manager {
 
 
     # ossec.conf templates paths
-      $ossec_manager_template                          = 'wazuh/wazuh_manager.conf.erb'
-      $ossec_rootcheck_template                        = 'wazuh/fragments/_rootcheck.erb'
-      $ossec_wodle_openscap_template                   = 'wazuh/fragments/_wodle_openscap.erb'
-      $ossec_wodle_cis_cat_template                    = 'wazuh/fragments/_wodle_cis_cat.erb'
-      $ossec_wodle_osquery_template                    = 'wazuh/fragments/_wodle_osquery.erb'
-      $ossec_wodle_syscollector_template               = 'wazuh/fragments/_wodle_syscollector.erb'
-      $ossec_wodle_docker_listener_template            = 'wazuh/fragments/_wodle_docker_listener.erb'
-      $ossec_vulnerability_detector_template           = 'wazuh/fragments/_vulnerability_detector.erb'
-      $ossec_sca_template                              = 'wazuh/fragments/_sca.erb'
-      $ossec_syscheck_template                         = 'wazuh/fragments/_syscheck.erb'
-      $ossec_default_commands_template                 = 'wazuh/default_commands.erb'
-      $ossec_localfile_template                        = 'wazuh/fragments/_localfile.erb'
-      $ossec_ruleset_template                          = 'wazuh/fragments/_ruleset.erb'
-      $ossec_auth_template                             = 'wazuh/fragments/_auth.erb'
-      $ossec_cluster_template                          = 'wazuh/fragments/_cluster.erb'
-      $ossec_active_response_template                  = 'wazuh/fragments/_default_activeresponse.erb'
-      $ossec_syslog_output_template                    = 'wazuh/fragments/_syslog_output.erb'
+      $ossec_manager_template                          = 'khulnasoft/khulnasoft_manager.conf.erb'
+      $ossec_rootcheck_template                        = 'khulnasoft/fragments/_rootcheck.erb'
+      $ossec_wodle_openscap_template                   = 'khulnasoft/fragments/_wodle_openscap.erb'
+      $ossec_wodle_cis_cat_template                    = 'khulnasoft/fragments/_wodle_cis_cat.erb'
+      $ossec_wodle_osquery_template                    = 'khulnasoft/fragments/_wodle_osquery.erb'
+      $ossec_wodle_syscollector_template               = 'khulnasoft/fragments/_wodle_syscollector.erb'
+      $ossec_wodle_docker_listener_template            = 'khulnasoft/fragments/_wodle_docker_listener.erb'
+      $ossec_vulnerability_detector_template           = 'khulnasoft/fragments/_vulnerability_detector.erb'
+      $ossec_sca_template                              = 'khulnasoft/fragments/_sca.erb'
+      $ossec_syscheck_template                         = 'khulnasoft/fragments/_syscheck.erb'
+      $ossec_default_commands_template                 = 'khulnasoft/default_commands.erb'
+      $ossec_localfile_template                        = 'khulnasoft/fragments/_localfile.erb'
+      $ossec_ruleset_template                          = 'khulnasoft/fragments/_ruleset.erb'
+      $ossec_auth_template                             = 'khulnasoft/fragments/_auth.erb'
+      $ossec_cluster_template                          = 'khulnasoft/fragments/_cluster.erb'
+      $ossec_active_response_template                  = 'khulnasoft/fragments/_default_activeresponse.erb'
+      $ossec_syslog_output_template                    = 'khulnasoft/fragments/_syslog_output.erb'
 
       ## Rootcheck
 
@@ -306,7 +306,7 @@ class wazuh::params_manager {
 
       # Cluster
 
-      $ossec_cluster_name                              = 'wazuh'
+      $ossec_cluster_name                              = 'khulnasoft'
       $ossec_cluster_node_name                         = 'node01'
       $ossec_cluster_node_type                         = 'master'
       $ossec_cluster_key                               = 'KEY'
@@ -329,30 +329,30 @@ class wazuh::params_manager {
       $agent_auth_password                 = undef
       $ar_repeated_offenders               = ''
 
-      $local_decoder_template              = 'wazuh/local_decoder.xml.erb'
+      $local_decoder_template              = 'khulnasoft/local_decoder.xml.erb'
       $decoder_exclude                     = []
-      $local_rules_template                = 'wazuh/local_rules.xml.erb'
+      $local_rules_template                = 'khulnasoft/local_rules.xml.erb'
       $rule_exclude                        = []
-      $shared_agent_template               = 'wazuh/ossec_shared_agent.conf.erb'
+      $shared_agent_template               = 'khulnasoft/ossec_shared_agent.conf.erb'
 
-      $wazuh_manager_verify_manager_ssl    = false
-      $wazuh_manager_server_crt            = undef
-      $wazuh_manager_server_key            = undef
+      $khulnasoft_manager_verify_manager_ssl    = false
+      $khulnasoft_manager_server_crt            = undef
+      $khulnasoft_manager_server_key            = undef
 
 
-      ## Wazuh config folders and modes
+      ## Khulnasoft config folders and modes
 
       $config_file = '/var/ossec/etc/ossec.conf'
       $shared_agent_config_file = '/var/ossec/etc/shared/default/agent.conf'
 
       $config_mode = '0640'
       $config_owner = 'root'
-      $config_group = 'wazuh'
+      $config_group = 'khulnasoft'
 
       $keys_file = '/var/ossec/etc/client.keys'
       $keys_mode = '0640'
       $keys_owner = 'root'
-      $keys_group = 'wazuh'
+      $keys_group = 'khulnasoft'
 
 
       $authd_pass_file = '/var/ossec/etc/authd.pass'
@@ -362,51 +362,51 @@ class wazuh::params_manager {
       $processlist_file = '/var/ossec/bin/.process_list'
       $processlist_mode = '0640'
       $processlist_owner = 'root'
-      $processlist_group = 'wazuh'
+      $processlist_group = 'khulnasoft'
 
       #API
 
-      $wazuh_api_host = '0.0.0.0'
-      $wazuh_api_port = '55000'
+      $khulnasoft_api_host = '0.0.0.0'
+      $khulnasoft_api_port = '55000'
 
-      $wazuh_api_file =  undef
+      $khulnasoft_api_file =  undef
 
       # Advanced configuration
-      $wazuh_api_https_enabled = 'yes'
-      $wazuh_api_https_key = 'server.key'
-      $wazuh_api_https_cert = 'server.crt'
-      $wazuh_api_https_use_ca = 'False'
-      $wazuh_api_https_ca = 'ca.crt'
-      $wazuh_api_ssl_protocol = 'TLSv1.2'
-      $wazuh_api_ssl_ciphers  = '""'
+      $khulnasoft_api_https_enabled = 'yes'
+      $khulnasoft_api_https_key = 'server.key'
+      $khulnasoft_api_https_cert = 'server.crt'
+      $khulnasoft_api_https_use_ca = 'False'
+      $khulnasoft_api_https_ca = 'ca.crt'
+      $khulnasoft_api_ssl_protocol = 'TLSv1.2'
+      $khulnasoft_api_ssl_ciphers  = '""'
 
       # Logging configuration
       # Values for API log level: disabled, info, warning, error, debug, debug2 (each level includes the previous level).
-      $wazuh_api_logs_level = 'info'
+      $khulnasoft_api_logs_level = 'info'
       # Values for API log format: 'plain', 'json', 'plain,json', 'json,plain'
-      $wazuh_api_logs_format = 'plain'
+      $khulnasoft_api_logs_format = 'plain'
 
       # Cross-origin resource sharing: https://github.com/aio-libs/aiohttp-cors#usage
-      $wazuh_api_cors_enabled = 'no'
-      $wazuh_api_cors_source_route = '"*"'
-      $wazuh_api_cors_expose_headers = '"*"'
-      $wazuh_api_cors_allow_headers = '"*"'
-      $wazuh_api_cors_allow_credentials = 'no'
+      $khulnasoft_api_cors_enabled = 'no'
+      $khulnasoft_api_cors_source_route = '"*"'
+      $khulnasoft_api_cors_expose_headers = '"*"'
+      $khulnasoft_api_cors_allow_headers = '"*"'
+      $khulnasoft_api_cors_allow_credentials = 'no'
 
       # Cache (time in seconds)
-      $wazuh_api_cache_enabled = 'yes'
-      $wazuh_api_cache_time = '0.750'
+      $khulnasoft_api_cache_enabled = 'yes'
+      $khulnasoft_api_cache_time = '0.750'
 
       # Access parameters
-      $wazuh_api_access_max_login_attempts = 5
-      $wazuh_api_access_block_time = 300
-      $wazuh_api_access_max_request_per_minute = 300
+      $khulnasoft_api_access_max_login_attempts = 5
+      $khulnasoft_api_access_block_time = 300
+      $khulnasoft_api_access_max_request_per_minute = 300
 
       # Drop privileges (Run as ossec user)
-      $wazuh_api_drop_privileges = 'yes'
+      $khulnasoft_api_drop_privileges = 'yes'
 
       # Enable features under development
-      $wazuh_api_experimental_features = 'no'
+      $khulnasoft_api_experimental_features = 'no'
 
       # Enable remote commands
       $remote_commands_localfile = 'yes'
@@ -415,15 +415,15 @@ class wazuh::params_manager {
       $remote_commands_wodle_exceptions = []
       $limits_eps = 'yes'
 
-      # Wazuh API template path
-      $wazuh_api_template = 'wazuh/wazuh_api_yml.erb'
+      # Khulnasoft API template path
+      $khulnasoft_api_template = 'khulnasoft/khulnasoft_api_yml.erb'
 
 
       case $::osfamily {
         'Debian': {
 
-          $agent_service  = 'wazuh-agent'
-          $agent_package  = 'wazuh-agent'
+          $agent_service  = 'khulnasoft-agent'
+          $agent_package  = 'khulnasoft-agent'
           $service_has_status  = false
           $ossec_service_provider = undef
           $api_service_provider = undef
@@ -436,8 +436,8 @@ class wazuh::params_manager {
           ]
           case $::lsbdistcodename {
             'xenial': {
-              $server_service = 'wazuh-manager'
-              $server_package = 'wazuh-manager'
+              $server_service = 'khulnasoft-manager'
+              $server_package = 'khulnasoft-manager'
               $wodle_openscap_content = {
                 'ssg-ubuntu-1604-ds.xml' => {
                   'type' => 'xccdf',
@@ -448,8 +448,8 @@ class wazuh::params_manager {
               }
             }
             'jessie': {
-              $server_service = 'wazuh-manager'
-              $server_package = 'wazuh-manager'
+              $server_service = 'khulnasoft-manager'
+              $server_package = 'khulnasoft-manager'
               $wodle_openscap_content = {
                 'ssg-debian-8-ds.xml' => {
                   'type' => 'xccdf',
@@ -461,8 +461,8 @@ class wazuh::params_manager {
               }
             }
             /^(wheezy|stretch|buster|bullseye|bookworm|sid|precise|trusty|vivid|wily|xenial|bionic|focal|groovy|jammy)$/: {
-              $server_service = 'wazuh-manager'
-              $server_package = 'wazuh-manager'
+              $server_service = 'khulnasoft-manager'
+              $server_package = 'khulnasoft-manager'
               $wodle_openscap_content = undef
             }
         default: {
@@ -473,10 +473,10 @@ class wazuh::params_manager {
         }
         'RedHat': {
 
-          $agent_service  = 'wazuh-agent'
-          $agent_package  = 'wazuh-agent'
-          $server_service = 'wazuh-manager'
-          $server_package = 'wazuh-manager'
+          $agent_service  = 'khulnasoft-agent'
+          $agent_package  = 'khulnasoft-agent'
+          $server_service = 'khulnasoft-manager'
+          $server_package = 'khulnasoft-manager'
           $service_has_status  = true
 
           $default_local_files =[
@@ -569,10 +569,10 @@ class wazuh::params_manager {
         }
         'Suse': {
 
-          $agent_service  = 'wazuh-agent'
-          $agent_package  = 'wazuh-agent'
-          $server_service = 'wazuh-manager'
-          $server_package = 'wazuh-manager'
+          $agent_service  = 'khulnasoft-agent'
+          $agent_package  = 'khulnasoft-agent'
+          $server_service = 'khulnasoft-manager'
+          $server_package = 'khulnasoft-manager'
           $service_has_status  = true
 
           $default_local_files =[
@@ -608,8 +608,8 @@ class wazuh::params_manager {
       $keys_owner = 'Administrator'
       $keys_group = 'Administrators'
 
-      $agent_service  = 'WazuhSvc'
-      $agent_package  = 'Wazuh Agent 4.8.0'
+      $agent_service  = 'KhulnasoftSvc'
+      $agent_package  = 'Khulnasoft Agent 4.8.0'
       $server_service = ''
       $server_package = ''
       $api_service = ''
